@@ -1,11 +1,12 @@
-<mat-toolbar class="mat-elevation-z6" color="primary">
+<mat-toolbar class="mat-elevation-z6" color="primary" style="height: 56px; position:relative; z-index: 2">
   <button mat-icon-button (click)="sidenav.toggle();">
     <mat-icon>menu</mat-icon>
   </button>
   <span>{{title}}</span>
 </mat-toolbar>
 
-<mat-sidenav-container style="min-height: 100vh">
+
+<mat-sidenav-container style="min-height: calc(100vh - 56px); position:relative; z-index: 1">
   <mat-sidenav #sidenav mode="side" opened>
     <div style="margin: 20px">
       <p>Hello there!</p>
