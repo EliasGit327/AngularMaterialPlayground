@@ -7,11 +7,13 @@ import {MaterialModule} from './shared/material.module';
 import { UniversalTableComponent } from './components/universal-table/universal-table.component';
 import {CdkTableModule} from '@angular/cdk/table';
 import {MatCheckboxModule, MatRadioModule} from '@angular/material';
+import { TablePreviewComponent } from './pages/table-preview/table-preview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UniversalTableComponent,
+    TablePreviewComponent,
   ],
   imports: [
     BrowserModule,

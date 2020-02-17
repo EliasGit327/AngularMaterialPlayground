@@ -1,0 +1,11 @@
+<p>table-preview works!</p>
+<div style="padding: 20px;">
+  <app-universal-table
+    [controller]="tableExampleService"
+    [dataSource]="tableExampleService.ELEMENT_DATA"
+    [displayedColumns]="tableExampleService.displayedColumns"
+    [selectType]="tableExampleService.selectType"
+    [isShowingNumber]="true"
+    [buttons]="tableExampleService.buttons"
+  ></app-universal-table>
+</div>

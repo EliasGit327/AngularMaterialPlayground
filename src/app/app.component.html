@@ -14,17 +14,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-<!--    <div style="background-color: purple;height: 100px"></div>-->
-    <div style="padding: 20px;">
-      <app-universal-table
-        [dataSource]="ELEMENT_DATA"
-        [displayedColumns]="displayedColumns"
-        [selectType]="selectType"
-        [isShowingNumber]="true"
-      ></app-universal-table>
-    </div>
-    <button mat-raised-button style="margin: 20px" (click)="changeData()">Change data</button>
-
+    <app-table-preview></app-table-preview>
   </mat-sidenav-content>
 </mat-sidenav-container>
 
