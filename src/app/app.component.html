@@ -7,7 +7,9 @@
 
 <mat-sidenav-container style="min-height: 100vh">
   <mat-sidenav #sidenav mode="side" opened>
-    <p>Hello there!</p>
+    <div style="margin: 20px">
+      <p>Hello there!</p>
+    </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -16,8 +18,12 @@
       <app-universal-table
         [dataSource]="ELEMENT_DATA"
         [displayedColumns]="displayedColumns"
+        [selectType]="selectType"
+        [isShowingNumber]="true"
       ></app-universal-table>
     </div>
+    <button mat-raised-button style="margin: 20px" (click)="changeData()">Change data</button>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
 

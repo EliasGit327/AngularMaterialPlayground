@@ -6,6 +6,7 @@ import {RouterModule} from '@angular/router';
 import {MaterialModule} from './shared/material.module';
 import { UniversalTableComponent } from './components/universal-table/universal-table.component';
 import {CdkTableModule} from '@angular/cdk/table';
+import {MatCheckboxModule, MatRadioModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import {CdkTableModule} from '@angular/cdk/table';
     BrowserAnimationsModule,
     RouterModule,
     MaterialModule,
-    CdkTableModule
+    CdkTableModule,
+    MatCheckboxModule,
+    MatRadioModule
   ],
   providers: [
   ],
