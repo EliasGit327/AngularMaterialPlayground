@@ -27,7 +27,7 @@ export class TableExampleService implements ITableSelector {
   ];
   selectType = SelectType.multiple;
 
-  buttons = [{
+  buttons: { key: string | number, display: string | number}[] = [{
     key: 'warn',
     display: 'Console Warn'
   }];

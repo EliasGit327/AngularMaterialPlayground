@@ -6,7 +6,7 @@ import {RouterModule} from '@angular/router';
 import {MaterialModule} from './shared/material.module';
 import { UniversalTableComponent } from './components/universal-table/universal-table.component';
 import {CdkTableModule} from '@angular/cdk/table';
-import {MatCheckboxModule, MatRadioModule} from '@angular/material';
+import {MatCheckboxModule, MatExpansionModule, MatFormFieldModule, MatRadioModule} from '@angular/material';
 import { TablePreviewComponent } from './pages/table-preview/table-preview.component';
 
 @NgModule({
@@ -22,7 +22,9 @@ import { TablePreviewComponent } from './pages/table-preview/table-preview.compo
     MaterialModule,
     CdkTableModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatExpansionModule,
+    MatFormFieldModule
   ],
   providers: [
   ],
