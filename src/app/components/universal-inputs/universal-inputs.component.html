@@ -1,0 +1,6 @@
+<mat-card>
+  <input matInput *ngFor="let input of inputs"
+         placeholder="{{input.display}}" [(ngModel)]="inputValues[input.key]">
+
+  <button mat-raised-button color="primary" (click)="warnData()">Warn data</button>
+</mat-card>

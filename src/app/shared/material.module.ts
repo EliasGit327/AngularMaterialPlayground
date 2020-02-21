@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   MatButtonModule,
-  MatIconModule,
+  MatIconModule, MatNativeDateModule,
   MatSidenav, MatSidenavContainer, MatSidenavContent, MatTableModule,
   MatToolbarModule
 } from '@angular/material';
@@ -15,6 +15,7 @@ import {
   ],
   imports: [
     CommonModule,
+    MatNativeDateModule
   ],
   exports: [
     MatIconModule,

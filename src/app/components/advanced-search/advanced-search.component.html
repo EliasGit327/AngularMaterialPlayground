@@ -1,0 +1,60 @@
+<mat-card>
+  <mat-card-title>Search component</mat-card-title>
+  <div style="display: flex;flex-direction: row;flex-wrap: wrap; align-items: center">
+    <div *ngFor="let input of inputs">
+
+      <div [ngSwitch]="input.type">
+      <span *ngSwitchCase="0" style="margin-right: 10px;">
+        <mat-form-field>
+          <mat-label>{{input.display}}</mat-label>
+          <input matInput type="text" [(ngModel)]="response[input.key]" placeholder="Text">
+          <button mat-button *ngIf="input.key" matSuffix mat-icon-button aria-label="Clear"
+                  (click)="response[input.key]=''">
+          <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </span>
+
+        <span *ngSwitchCase="1" style="margin-right: 10px;">
+        <mat-form-field>
+          <mat-label>{{input.display}}</mat-label>
+          <input matInput type="number" [(ngModel)]="response[input.key]" placeholder="Number">
+          <button mat-button *ngIf="input.key" matSuffix mat-icon-button aria-label="Clear"
+                  (click)="response[input.key]=''">
+          <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </span>
+
+        <span *ngSwitchCase="2" style="margin-right: 10px;">
+          <mat-form-field>
+            <mat-label>{{input.display}}</mat-label>
+            <input matInput placeholder="Date"
+                   [matDatepicker]="picker"
+                   [(ngModel)]="response[input.key]">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </span>
+
+        <span *ngSwitchCase="3" style="margin-right: 10px;">
+          <mat-form-field>
+            <mat-label>{{input.display}}</mat-label>
+            <mat-select [(value)]="response[input.key]">
+              <mat-option *ngFor="let select of boolSelectOptions" [value]="select.value">
+                {{select.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+  <button mat-raised-button color="primary" (click)="getData()">
+    Warn Data
+  </button>
+</mat-card>
+
+

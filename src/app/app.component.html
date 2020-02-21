@@ -7,15 +7,17 @@
 
 
 <mat-sidenav-container style="min-height: calc(100vh - 56px); position:relative; z-index: 1">
-  <mat-sidenav #sidenav mode="side" opened>
+  <mat-sidenav #sidenav mode="side">
     <div style="margin: 20px">
       <p>Hello there!</p>
     </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
-<!--    <div style="background-color: purple;height: 100px"></div>-->
     <div style="padding: 20px;">
+<!--      <app-universal-inputs></app-universal-inputs>-->
+      <app-advanced-search></app-advanced-search>
+      <div style="margin-top: 20px"></div>
       <app-universal-table
         [dataSource]="ELEMENT_DATA"
         [displayedColumns]="displayedColumns"
@@ -23,7 +25,10 @@
         [isShowingNumber]="true"
       ></app-universal-table>
     </div>
-    <button mat-raised-button style="margin: 20px" (click)="changeData()">Change data</button>
+    <button mat-raised-button style="margin-left: 20px;margin-inside: 10px" color="primary"
+            (click)="changeData()">
+      Change data
+    </button>
 
   </mat-sidenav-content>
 </mat-sidenav-container>
