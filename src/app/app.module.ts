@@ -6,6 +6,8 @@ import {RouterModule} from '@angular/router';
 import {MaterialModule} from './shared/material.module';
 import { UniversalTableComponent } from './components/universal-table/universal-table.component';
 import {CdkTableModule} from '@angular/cdk/table';
+import {MatCheckboxModule, MatExpansionModule, MatFormFieldModule, MatRadioModule} from '@angular/material';
+import { TablePreviewComponent } from './pages/table-preview/table-preview.component';
 import {MatCardModule, MatCheckboxModule, MatDatepickerModule, MatInputModule, MatRadioModule, MatSelectModule} from '@angular/material';
 import { UniversalInputsComponent } from './components/universal-inputs/universal-inputs.component';
 import {FormsModule} from '@angular/forms';
@@ -15,6 +17,7 @@ import { AdvancedSearchComponent } from './components/advanced-search/advanced-s
   declarations: [
     AppComponent,
     UniversalTableComponent,
+    TablePreviewComponent,
     UniversalInputsComponent,
     AdvancedSearchComponent,
   ],

@@ -14,22 +14,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <div style="padding: 20px;">
-<!--      <app-universal-inputs></app-universal-inputs>-->
-      <app-advanced-search></app-advanced-search>
-      <div style="margin-top: 20px"></div>
-      <app-universal-table
-        [dataSource]="ELEMENT_DATA"
-        [displayedColumns]="displayedColumns"
-        [selectType]="selectType"
-        [isShowingNumber]="true"
-      ></app-universal-table>
-    </div>
-    <button mat-raised-button style="margin-left: 20px;margin-inside: 10px" color="primary"
-            (click)="changeData()">
-      Change data
-    </button>
-
+    <app-table-preview></app-table-preview>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

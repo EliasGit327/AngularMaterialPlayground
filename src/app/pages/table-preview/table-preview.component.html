@@ -1,0 +1,28 @@
+<div style="padding: 20px;">
+  <app-universal-table
+    [controller]="tableExampleService"
+    [dataSource]="tableExampleService.ELEMENT_DATA"
+    [displayedColumns]="tableExampleService.displayedColumns"
+    [selectType]="tableExampleService.selectType"
+    [isShowingNumber]="true"
+    [buttons]="tableExampleService.buttons"
+  ></app-universal-table>
+</div>
+
+<div style="margin: 20px">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Table Data
+        </mat-panel-title>
+        <mat-panel-description>
+          Type your name and age
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-label>DATA</mat-label>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
