@@ -47,14 +47,28 @@
             </mat-select>
           </mat-form-field>
         </span>
+
+        <span *ngSwitchCase="4" style="margin-right: 10px;">
+          <mat-form-field>
+            <mat-label>{{input.display}}</mat-label>
+            <mat-select [(value)]="response[input.key]">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let select of input.selectOptions" [value]="select.value">
+                {{select.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </span>
       </div>
 
     </div>
   </div>
 
-  <button mat-raised-button color="primary" (click)="getData()">
-    Warn Data
-  </button>
+  <div style="display: flex;justify-content: flex-end">
+    <button mat-raised-button color="primary" (click)="getData()">
+      Search
+    </button>
+  </div>
 </mat-card>
 
 

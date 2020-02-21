@@ -4,13 +4,20 @@ enum SearchInputType {
   string,
   number,
   date,
-  boolean
+  boolean,
+  select
+}
+
+interface Selection {
+  value: boolean | null | string;
+  viewValue: string;
 }
 
 class SearchInput {
   key: string;
   display: string;
   type: SearchInputType;
+  selectOptions?: Selection[];
 }
 
 @Component({
@@ -24,9 +31,12 @@ export class AdvancedSearchComponent implements OnInit {
     {key: 'stringTest', display: 'String Test', type: SearchInputType.string},
     {key: 'numberTest', display: 'Number Tests', type: SearchInputType.number},
     {key: 'dateTest', display: 'Date Tests', type: SearchInputType.date},
-    {key: 'booleanTest', display: 'Boolean Tests', type: SearchInputType.boolean}
+    {key: 'booleanTest', display: 'Boolean Tests', type: SearchInputType.boolean},
+    {key: 'selectionTest', display: 'Selection Tests', type: SearchInputType.select,
+      selectOptions: [{value: 'a1', viewValue: 'A1'}, {value: 'a2', viewValue: 'A2'}]}
+
   ];
-  boolSelectOptions: { value: boolean | null, viewValue: string }[] = [
+  boolSelectOptions: Selection[] = [
     {value: null, viewValue: 'None'},
     {value: true, viewValue: 'True'},
     {value: false, viewValue: 'False'}
