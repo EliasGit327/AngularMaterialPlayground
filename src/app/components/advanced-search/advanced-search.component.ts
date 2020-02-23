@@ -1,24 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-
-enum SearchInputType {
-  string,
-  number,
-  date,
-  boolean,
-  select
-}
-
-interface Selection {
-  value: boolean | null | string;
-  viewValue: string;
-}
-
-class SearchInput {
-  key: string;
-  display: string;
-  type: SearchInputType;
-  selectOptions?: Selection[];
-}
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {SelectionOptions} from './interfaces/selection-options';
+import {UniversalInput} from './interfaces/universal-input';
+import {DataType} from './enums/data-type';
 
 @Component({
   selector: 'app-advanced-search',
@@ -27,54 +10,35 @@ class SearchInput {
 })
 
 export class AdvancedSearchComponent implements OnInit {
-  @Input() public inputs: SearchInput[] = [
-    {key: 'stringTest', display: 'String Test', type: SearchInputType.string},
-    {key: 'numberTest', display: 'Number Tests', type: SearchInputType.number},
-    {key: 'dateTest', display: 'Date Tests', type: SearchInputType.date},
-    {key: 'booleanTest', display: 'Boolean Tests', type: SearchInputType.boolean},
-    {key: 'selectionTest', display: 'Selection Tests', type: SearchInputType.select,
-      selectOptions: [{value: 'a1', viewValue: 'A1'}, {value: 'a2', viewValue: 'A2'}]}
-
-  ];
-  boolSelectOptions: Selection[] = [
+  @Output() eventForButton = new EventEmitter<any>();
+  @Input() public inputs: UniversalInput[] = [];
+  // _Reference_for_html_of_Enums_values_____________________________________________________________________________________
+  private enumVariants = {
+    string : DataType.string,
+    number : DataType.number,
+    date : DataType.date,
+    boolean : DataType.boolean,
+    select  : DataType.select
+  };
+  // _Boolean_options_for_select_____________________________________________________________________________________________
+  boolSelectOptions: SelectionOptions[] = [
     {value: null, viewValue: 'None'},
     {value: true, viewValue: 'True'},
     {value: false, viewValue: 'False'}
   ];
-  response: any = {};
+  // _Object_for_response____________________________________________________________________________________________________
+  response = {};
 
-  constructor() {
-    // this.prepareNgModelForInputs();
-  }
+  constructor() {}
+  ngOnInit() {}
 
-  prepareNgModelForInputs(): void {
-    if (this.inputs) {
-      this.inputs.forEach(input => {
-        switch (input.type) {
-          case SearchInputType.string:
-            this.response[input.key] = '';
-            break;
-          case SearchInputType.number:
-            this.response[input.key] = '';
-            break;
-          case SearchInputType.date:
-            this.response[input.key] = '';
-            break;
-        }
-      });
-    }
-  }
-
-  ngOnInit() {
-  }
-
-  getData() {
+  buttonClick() {
     this.removeParamsFromResponse();
-    console.warn(this.response);
+    this.eventForButton.emit(this.response);
   }
-
+  // _This_method_clears_response_object_from_empty_string,_null_and_undefined_parameters____________________________________
   removeParamsFromResponse(): any {
-    this.inputs.forEach( (input: SearchInput) => {
+    this.inputs.forEach( (input: UniversalInput) => {
       if (this.response[input.key] === '' || this.response[input.key] === null || this.response[input.key] === undefined) {
         delete this.response[input.key];
       }

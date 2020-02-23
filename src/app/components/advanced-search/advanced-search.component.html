@@ -3,41 +3,46 @@
   <div style="display: flex;flex-direction: row;flex-wrap: wrap; align-items: center">
     <div *ngFor="let input of inputs">
 
+      <!-- __String_Input_____________________________________________________________________      -->
       <div [ngSwitch]="input.type">
-      <span *ngSwitchCase="0" style="margin-right: 10px;">
+      <span *ngSwitchCase="enumVariants.string" style="margin-right: 10px;">
         <mat-form-field>
           <mat-label>{{input.display}}</mat-label>
-          <input matInput type="text" [(ngModel)]="response[input.key]" placeholder="Text">
+          <label>
+            <input matInput type="text" [(ngModel)]="response[input.key]" placeholder="Text">
+          </label>
           <button mat-button *ngIf="input.key" matSuffix mat-icon-button aria-label="Clear"
                   (click)="response[input.key]=''">
           <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
       </span>
-
-        <span *ngSwitchCase="1" style="margin-right: 10px;">
+        <!-- __Number_Input___________________________________________________________________      -->
+        <span *ngSwitchCase="enumVariants.number" style="margin-right: 10px;">
         <mat-form-field>
           <mat-label>{{input.display}}</mat-label>
-          <input matInput type="number" [(ngModel)]="response[input.key]" placeholder="Number">
+          <label>
+            <input matInput type="number" [(ngModel)]="response[input.key]" placeholder="Number">
+          </label>
           <button mat-button *ngIf="input.key" matSuffix mat-icon-button aria-label="Clear"
                   (click)="response[input.key]=''">
           <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
       </span>
-
-        <span *ngSwitchCase="2" style="margin-right: 10px;">
+        <!-- __Date_Input_____________________________________________________________________      -->
+        <span *ngSwitchCase="enumVariants.date" style="margin-right: 10px;">
           <mat-form-field>
             <mat-label>{{input.display}}</mat-label>
-            <input matInput placeholder="Date"
-                   [matDatepicker]="picker"
-                   [(ngModel)]="response[input.key]">
+            <label>
+              <input matInput placeholder="Date" [matDatepicker]="picker" [(ngModel)]="response[input.key]">
+            </label>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </span>
-
-        <span *ngSwitchCase="3" style="margin-right: 10px;">
+        <!-- __Boolean_Input__________________________________________________________________      -->
+        <span *ngSwitchCase="enumVariants.boolean" style="margin-right: 10px;">
           <mat-form-field>
             <mat-label>{{input.display}}</mat-label>
             <mat-select [(value)]="response[input.key]">
@@ -47,8 +52,8 @@
             </mat-select>
           </mat-form-field>
         </span>
-
-        <span *ngSwitchCase="4" style="margin-right: 10px;">
+        <!-- __Select_Input___________________________________________________________________      -->
+        <span *ngSwitchCase="enumVariants.select" style="margin-right: 10px;">
           <mat-form-field>
             <mat-label>{{input.display}}</mat-label>
             <mat-select [(value)]="response[input.key]">
@@ -65,8 +70,8 @@
   </div>
 
   <div style="display: flex;justify-content: flex-end">
-    <button mat-raised-button color="primary" (click)="getData()">
-      Search
+    <button mat-mini-fab color="primary" (click)="buttonClick()">
+      <mat-icon>search</mat-icon>
     </button>
   </div>
 </mat-card>

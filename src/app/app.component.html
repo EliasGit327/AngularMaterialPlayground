@@ -15,7 +15,7 @@
 
   <mat-sidenav-content>
     <div style="margin: 20px">
-      <app-advanced-search></app-advanced-search>
+      <app-advanced-search #searchComponent (eventForButton)="showData($event)" [inputs]="inputs"></app-advanced-search>
     </div>
 
     <app-table-preview></app-table-preview>
