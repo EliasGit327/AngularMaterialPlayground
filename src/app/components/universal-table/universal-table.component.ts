@@ -41,7 +41,6 @@ export class UniversalTableComponent implements OnInit, OnDestroy {
   sliceStart: number;
   sliceEnd: number;
 
-
   constructor() {
   }
 
@@ -56,12 +55,13 @@ export class UniversalTableComponent implements OnInit, OnDestroy {
     if (this.selectType !== SelectType.none) {
       this.displayedColumns.unshift(this.selectColumn);
     }
-    if (this.isShowingNumber) {
+    if (this.isShowingNumber && !this.displayedColumns.includes(this.numberColumn)) {
       this.displayedColumns.unshift(this.numberColumn);
     }
-    if (this.buttons.length) {
+    if (this.buttons.length && !this.displayedColumns.includes(this.buttonsColumns)) {
       this.displayedColumns.push(this.buttonsColumns);
     }
+    console.warn(this.displayedColumns);
     this.sliceStart = (this.isShowingNumber ? 1 : 0) + (this.selectType !== SelectType.none ? 1 : 0);
     this.sliceEnd = this.displayedColumns.length - (this.buttons.length > 0 ?  1 : 0);
   }
