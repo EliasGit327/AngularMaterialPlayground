@@ -19,6 +19,9 @@ import {
 import { UniversalInputsComponent } from './components/universal-inputs/universal-inputs.component';
 import {FormsModule} from '@angular/forms';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
+import { AdvancedSearchPreviewComponent } from './pages/advanced-search-preview/advanced-search-preview.component';
+import {AppRoutingModule} from './app-routing.module';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,8 @@ import { AdvancedSearchComponent } from './components/advanced-search/advanced-s
     TablePreviewComponent,
     UniversalInputsComponent,
     AdvancedSearchComponent,
+    AdvancedSearchPreviewComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import { AdvancedSearchComponent } from './components/advanced-search/advanced-s
     FormsModule,
     MatDatepickerModule,
     MatSelectModule,
-    MatExpansionModule
+    MatExpansionModule,
+    AppRoutingModule
   ],
   providers: [
   ],

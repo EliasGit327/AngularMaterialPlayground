@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {SelectType} from './enums/SelectType';
 import {DisplayColumn} from './classes/display-column';
 import {ITableSelector} from './interfaces/itable-selector';
@@ -9,7 +9,7 @@ import {ITableSelector} from './interfaces/itable-selector';
   styleUrls: ['./universal-table.component.css']
 })
 
-export class UniversalTableComponent implements OnInit {
+export class UniversalTableComponent implements OnInit, OnDestroy {
   @Input() hidden = false;
   @Input() displayedColumns: DisplayColumn[] = [];
   @Input() dataSource: any[] = [];
@@ -47,6 +47,9 @@ export class UniversalTableComponent implements OnInit {
 
   ngOnInit() {
     this.prepareData();
+  }
+
+  ngOnDestroy(): void {
   }
 
   prepareData(): void {

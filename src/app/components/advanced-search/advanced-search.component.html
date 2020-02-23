@@ -77,3 +77,34 @@
 </mat-card>
 
 
+<div>
+  <h3>About</h3>
+  <p>
+    This component is used for showing multiple inputs with different type of data.
+    For now it supports: String, Number, Date, Boolean and Selection options. On button click component executes event
+    provided in Even Emitter.
+  </p>
+  <h3>HTML call</h3>
+  <p>
+    It is called as any normal component. It has 1 input and 1 output: <code>[params]</code> of data type:
+  </p>
+  <p>
+    <code>
+      <u>UniversalInput</u><br/>
+      key: string;<br/>
+      display: string;<br/>
+      type: DataType;selectOptions?: SelectionOptions[];
+    </code>
+  </p>
+  <p>
+    <code>
+      <u>SelectOptions<br/></u>
+      value: boolean | null | string;<br/>
+      viewValue: string;
+    </code>
+  </p>
+
+
+
+</div>
+
