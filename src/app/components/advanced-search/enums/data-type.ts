@@ -3,5 +3,6 @@ export enum DataType {
   number,
   date,
   boolean,
-  select
+  select,
+  multiselect
 }

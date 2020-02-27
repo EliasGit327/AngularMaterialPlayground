@@ -14,6 +14,8 @@ export class AdvancedSearchPreviewComponent implements OnInit {
     {key: 'dateTest', display: 'Date Tests', type: DataType.date},
     {key: 'booleanTest', display: 'Boolean Tests', type: DataType.boolean},
     {key: 'selectionTest', display: 'Select Options Tests', type: DataType.select,
+      selectOptions: [{value: 'a1', viewValue: 'A1'}, {value: 'a2', viewValue: 'A2'}]},
+    {key: 'multiselectTest', display: 'Multiselect Options Tests', type: DataType.multiselect,
       selectOptions: [{value: 'a1', viewValue: 'A1'}, {value: 'a2', viewValue: 'A2'}]}
   ];
 

@@ -18,7 +18,8 @@ export class AdvancedSearchComponent implements OnInit {
     number : DataType.number,
     date : DataType.date,
     boolean : DataType.boolean,
-    select  : DataType.select
+    select  : DataType.select,
+    multiselect: DataType.multiselect
   };
   // _Boolean_options_for_select_____________________________________________________________________________________________
   boolSelectOptions: SelectionOptions[] = [
@@ -32,10 +33,6 @@ export class AdvancedSearchComponent implements OnInit {
   constructor() {}
   ngOnInit() {}
 
-  buttonClick() {
-    this.removeParamsFromResponse();
-    this.eventForButton.emit(this.response);
-  }
   // _This_method_clears_response_object_from_empty_string,_null_and_undefined_parameters____________________________________
   removeParamsFromResponse(): any {
     this.inputs.forEach( (input: UniversalInput) => {
@@ -43,5 +40,10 @@ export class AdvancedSearchComponent implements OnInit {
         delete this.response[input.key];
       }
     });
+  }
+
+  buttonClick() {
+    this.removeParamsFromResponse();
+    this.eventForButton.emit(this.response);
   }
 }
