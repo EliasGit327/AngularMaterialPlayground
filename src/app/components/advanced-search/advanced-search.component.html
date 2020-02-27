@@ -69,7 +69,6 @@
           <mat-form-field>
             <mat-label>{{input.display}}</mat-label>
             <mat-select [(value)]="response[input.key]" multiple>
-              <mat-option>None</mat-option>
               <mat-option *ngFor="let select of input.selectOptions" [value]="select.value">
                 {{select.viewValue}}
               </mat-option>
