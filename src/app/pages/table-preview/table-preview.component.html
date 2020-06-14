@@ -1,12 +1,11 @@
 <div style="padding: 20px;">
-  <app-universal-table
-    [controller]="tableExampleService"
-    [dataSource]="tableExampleService.ELEMENT_DATA"
-    [displayedColumns]="tableExampleService.displayedColumns"
-    [selectType]="tableExampleService.selectType"
-    [isShowingNumber]="true"
-    [buttons]="tableExampleService.buttons"
-  ></app-universal-table>
+  <app-adaptive-table [displayColumns]="columnNames" [data]="data" [columns]="rules"></app-adaptive-table>
+
+  <h4>RadioButton</h4>
+  <p>{{selRow | json}}</p>
+
+  <h4>CheckBox</h4>
+  <p>{{selRows | json}}</p>
 </div>
 
 <div style="margin: 20px">
